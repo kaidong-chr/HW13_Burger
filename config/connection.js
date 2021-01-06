@@ -1,10 +1,10 @@
-// Set up MySQL connection.
+// Set up mysql connection.
 const mysql = require("mysql");
 
 // Heroku connection
 let connection = mysql.createConnection({
   host: "localhost",
-  port: process.env.PORT || 8080,
+  port: process.env.PORT || 3001,
   user: "root",
   password: "",
   database: "burgers_db"
