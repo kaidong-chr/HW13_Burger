@@ -1,6 +1,8 @@
 // Import mysql connection
 const connection = require("./connection");
 
+
+// Object for all SQL statement functions
 let orm = {
     selectAll: function(table, cb){
         let queryString = "SELECT * FROM ??";
@@ -22,4 +24,17 @@ let orm = {
         });
     },
 
-}
+    updateOne: function(table, col, devoured, id, cb){
+        let queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
+        connection.query(queryString, [table, col, devoured, id], function(err, res){
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
+    },
+
+};
+
+// Export orm for our model - burger.js
+module.export = orm;
