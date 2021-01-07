@@ -1,4 +1,4 @@
-// Set up mysql connection.
+// Set up mysql connection
 const mysql = require("mysql");
 
 // Heroku connection
@@ -10,7 +10,7 @@ let connection = mysql.createConnection({
   database: "burgers_db"
 });
 
-// Make connection.
+// Make connection
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -19,5 +19,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Export connection for orm to use.
+// Export connection for orm to use
 module.exports = connection;
