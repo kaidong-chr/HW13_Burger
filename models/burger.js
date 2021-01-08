@@ -21,7 +21,7 @@ let burger = {
         });
     },
 
-    delete: function(table, id, cb) {
+    deleteOne: function(table, id, cb) {
         orm.updateOne("burgers", table, id, function(res) {
             cb(res);
         });

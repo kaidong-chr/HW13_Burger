@@ -34,7 +34,7 @@ let orm = {
         });
     },
 
-    delete: function(table, id, cb){
+    deleteOne: function(table, id, cb){
         let queryString = "DELETE FROM ?? WHERE id = ?";
         connection.query(queryString, [table, id], function(err, res){
             if (err) {
