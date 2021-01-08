@@ -32,6 +32,16 @@ let orm = {
             }
             cb(res);
         });
+    },
+
+    delete: function(table, id, cb){
+        let queryString = "DELETE FROM ?? WHERE id = ?";
+        connection.query(queryString, [table, id], function(err, res){
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
     }
 
 };
