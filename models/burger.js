@@ -9,20 +9,20 @@ let burger = {
         });
     },
 
-    insertOne: function(table, col, burger_name, cb) {
-        orm.insertOne("burgers", table, col, burger_name, function(res) {
+    insertOne: function(col, burger_name, cb) {
+        orm.insertOne("burgers", col, burger_name, function(res) {
             cb(res);
         });
     },
 
-    updateOne: function(table, col, devoured, id, cb) {
-        orm.updateOne("burgers", table, col, devoured, id, function(res) {
+    updateOne: function(col, devoured, id, cb) {
+        orm.updateOne("burgers", col, devoured, id, function(res) {
             cb(res);
         });
     },
 
-    deleteOne: function(table, id, cb) {
-        orm.updateOne("burgers", table, id, function(res) {
+    deleteOne: function(id, cb) {
+        orm.updateOne("burgers", id, function(res) {
             cb(res);
         });
     }
