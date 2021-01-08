@@ -23,12 +23,15 @@ router.post("/api/burgers", function(req, res) {
 router.put("/api/burgers/:id", function(req, res) {
     let condition = "id = " + req.params.id;
 
-    burger.updateOne("devoured", req.body.condition, function(result) {
+    burger.updateOne("devoured", condition, function(result) {
         if (err) {
             console.log(err);
           }
           res.json({ result });
     });
 });
+
+
+
 // Export routes for server.js to use.
 module.exports = router;
