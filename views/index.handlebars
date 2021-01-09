@@ -5,7 +5,7 @@
     <div class="col-6">
       <h2>Burgers Ready To Eat</h2>
       <ul>
-        {{#each bugers}} {{#unless devoured}} {{> burgers/burger-block
+        {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block
         devoured=true}} {{/unless}} {{/each}}
       </ul>
     </div>
@@ -15,7 +15,7 @@
     <div class="col-6">
       <h2>Burgers Devoured</h2>
       <ul>
-        {{#each bugers}} {{#if devoured}} {{> burgers/burger-block
+        {{#each burgers}} {{#if devoured}} {{> burgers/ateburger-block
         devoured=false}} {{/if}} {{/each}}
       </ul>
     </div>
