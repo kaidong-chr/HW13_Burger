@@ -1,5 +1,5 @@
 // Import orm to create functions that will interact with the database
-let orm = require("../config/orm.js");
+const orm = require("../config/orm");
 
 // Object that will call orm functions using burger inputs
 let burger = {
@@ -15,14 +15,14 @@ let burger = {
         });
     },
 
-    updateOne: function(col, devoured, id, cb) {
-        orm.updateOne("burgers", col, devoured, id, function(res) {
+    updateOne: function(col, devoured, condition, cb) {
+        orm.updateOne("burgers", col, devoured, condition, function(res) {
             cb(res);
         });
     },
 
     deleteOne: function(id, cb) {
-        orm.updateOne("burgers", id, function(res) {
+        orm.deleteOne("burgers", id, function(res) {
             cb(res);
         });
     }
@@ -30,4 +30,4 @@ let burger = {
 };
 
 // Export the database functions for the controller - burgers_controller.js
-module.exports = burger
+module.exports = burger;

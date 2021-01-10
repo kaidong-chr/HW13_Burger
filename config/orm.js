@@ -1,12 +1,10 @@
 // Import mysql connection
 const connection = require("./connection");
 
-
 // Object for all SQL statement functions
 let orm = {
     selectAll: function(table, cb){
-        let queryString = "SELECT * FROM ??";
-        connection.query(queryString, [table], function(err, res){
+        connection.query("SELECT * FROM ??", [table], function(err, res){
             if (err) {
                 throw err;
             }
@@ -15,8 +13,7 @@ let orm = {
     },
     
     insertOne: function(table, col, burger_name, cb){
-        let queryString = "INSERT INTO ?? (??) VALUES (?)";
-        connection.query(queryString, [table, col, burger_name], function(err, res){
+        connection.query("INSERT INTO ?? (??) VALUES (?)", [table, col, burger_name], function(err, res){
             if (err) {
                 throw err;
             }
@@ -24,9 +21,8 @@ let orm = {
         });
     },
 
-    updateOne: function(table, col, devoured, id, cb){
-        let queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
-        connection.query(queryString, [table, col, devoured, id], function(err, res){
+    updateOne: function(table, col, id, cb){
+        connection.query("UPDATE ?? SET ?? = 1 WHERE id = ?", [table, col, id], function(err, res){
             if (err) {
                 throw err;
             }
@@ -35,15 +31,13 @@ let orm = {
     },
 
     deleteOne: function(table, id, cb){
-        let queryString = "DELETE FROM ?? WHERE id = ?";
-        connection.query(queryString, [table, id], function(err, res){
+        connection.query("DELETE FROM ?? WHERE id = ?", [table, id], function(err, res){
             if (err) {
                 throw err;
             }
             cb(res);
         });
     }
-
 };
 
 // Export orm for our model - burger.js
