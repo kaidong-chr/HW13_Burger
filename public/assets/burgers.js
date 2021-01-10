@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
@@ -21,7 +21,7 @@ $(document).ready(function() {
       // Eating our burger
     $(".nom").on("click", function() {
       let id = $(this).data("id");
-  
+
       // Send the PUT request.
       $.ajax("/api/burgers/" + id, {
         type: "PUT",

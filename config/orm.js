@@ -13,7 +13,7 @@ let orm = {
     },
     
     insertOne: function(table, burger_name, val, cb) {
-        connection.query(`INSERT INTO ${table} (${burger_name}) VALUES (${val})`, function(err, res){
+        connection.query(`INSERT INTO ${table} (${burger_name}) VALUES ("${val}")`, function(err, res){
             if (err) {
                 throw err;
             }

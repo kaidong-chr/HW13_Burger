@@ -9,14 +9,14 @@ let burger = {
         });
     },
 
-    insertOne: function(col, burger_name, cb) {
-        orm.insertOne("burgers", col, burger_name, function(res) {
+    insertOne: function(burger_name, val, cb) {
+        orm.insertOne("burgers", burger_name, val, function(res) {
             cb(res);
         });
     },
 
-    updateOne: function(col, devoured, condition, cb) {
-        orm.updateOne("burgers", col, devoured, condition, function(res) {
+    updateOne: function(devoured, id, cb) {
+        orm.updateOne("burgers", devoured, id, function(res) {
             cb(res);
         });
     },
