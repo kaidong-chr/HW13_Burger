@@ -6,39 +6,42 @@ let router = express.Router();
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function (req, res) {
-  burger.selectAll(function (data) {
-    let hbsObject = { burgers: data };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+  burger.selectAll(function(data) {
+    let allBurgers = { burgers: data };
+    res.render("index", allBurgers);
   });
 });
 
-router.post("/api/burgers", function (req, res) {
-  burger.insertOne("burger_name", req.body.burger_name, function (result) {
+router.post("/api/burgers", function(req, res) {
+  burger.insertOne("burger_name", req.body.burger_name, function(result) {
     // Send back the ID of the new burger
     res.json({ id: result.insertId });
   });
 });
 
-router.put("/api/burgers/:id", function (req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   let condition = "id = " + req.params.id;
 
-  burger.updateOne("devoured", condition, function (err, result) {
-    if (err) {
-      console.log(err);
+  burger.updateOne("devoured", condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
     }
-    res.json({ result });
   });
 });
 
-router.delete("/api/burgers/:id", function (req, res) {
+router.delete("/api/burgers/:id", function(req, res) {
   let condition = "id = " + req.params.id;
 
-  burger.deleteOne(condition, function (err, result) {
-    if (err) {
-      console.log(err);
+  burger.deleteOne(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
     }
-    res.json({ result });
   });
 });
 
