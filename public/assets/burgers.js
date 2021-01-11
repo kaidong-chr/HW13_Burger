@@ -21,10 +21,16 @@ $(function() {
       // Eating our burger
     $(".nom").on("click", function() {
       let id = $(this).data("id");
+      let newDevoured = $(this).data("newDevoured");
 
+      let nom = {
+        devoured: newDevoured
+      };
+      
       // Send the PUT request.
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
+        data: nom
       }).then(function() {
         // Reloads the page to get the updated list
         location.reload();

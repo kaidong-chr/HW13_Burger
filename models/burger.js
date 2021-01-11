@@ -15,14 +15,14 @@ let burger = {
         });
     },
 
-    updateOne: function(devoured, id, cb) {
-        orm.updateOne("burgers", devoured, id, function(res) {
+    updateOne: function(devoured, condition, boolean, cb) {
+        orm.updateOne("burgers", devoured, condition, boolean, function(res) {
             cb(res);
         });
     },
 
-    deleteOne: function(id, cb) {
-        orm.deleteOne("burgers", id, function(res) {
+    deleteOne: function(condition, cb) {
+        orm.deleteOne("burgers", condition, function(res) {
             cb(res);
         });
     }

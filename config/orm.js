@@ -1,40 +1,53 @@
 // Import mysql connection
+const { query } = require("express");
 const connection = require("./connection");
 
 // Object for all SQL statement functions
 let orm = {
     selectAll: function(table, cb) {
-        connection.query(`SELECT * FROM ${table}`, function(err, res){
+        let queryString = `SELECT * FROM ${table}`;
+        console.log(queryString);
+        connection.query(queryString, function(err, res){
             if (err) {
                 throw err;
             }
+            console.log(res);
             cb(res);
         });
     },
     
     insertOne: function(table, burger_name, val, cb) {
-        connection.query(`INSERT INTO ${table} (${burger_name}) VALUES ("${val}")`, function(err, res){
+        let queryString = `INSERT INTO ${table} (${burger_name}) VALUES ("${val}")`;
+        console.log(queryString);
+        connection.query(queryString, function(err, res){
             if (err) {
                 throw err;
             }
+            console.log(res);
             cb(res);
         });
     },
 
-    updateOne: function(table, devoured, id, cb) {
-        connection.query(`UPDATE ${table} SET ${devoured} = 1 WHERE id = ${id}`, function(err, res){
+    updateOne: function(table, devoured, boolean, condition, cb) {
+        let queryString = `UPDATE ${table} SET ${devoured} = ${boolean} WHERE ${condition}`;
+        console.log(queryString);
+        connection.query(queryString, function(err, res){
             if (err) {
                 throw err;
             }
+            console.log(res);
             cb(res);
         });
     },
 
-    deleteOne: function(table, id, cb) {
-        connection.query(`DELETE FROM ${table} WHERE id = ${id}`, function(err, res){
+    deleteOne: function(table, condition, cb) {
+        let queryString = `DELETE FROM ${table} WHERE ${condition}`;
+        console.log(queryString);
+        connection.query(queryString, function(err, res){
             if (err) {
                 throw err;
             }
+            console.log(res);
             cb(res);
         });
     }
