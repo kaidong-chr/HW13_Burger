@@ -3,7 +3,7 @@
 ![badge](https://img.shields.io/badge/license-MIT-blue)<br />
 
   ### Description
-  A node CLI app that manages an employee SQL database using user inputs.
+  A full stack web app that allows you to create, eat and remove burgers via the user web interface. This app is based on the concept of CRUD utilizing express, express-handlebars and mysql.
   
   ### Table of Contents
   - [Description](#description)
@@ -22,16 +22,16 @@
   ### Prerequisites
   1. mySQL work bench
   2. VS Code
-  3. npm packages: mysql, inquirer, console.table and asciiart-logo
+  3. npm packages: mysql, express, and express-handlebars.
 
   ### Installation
   ```
-  npm i mysql inquirer console.table asciiart-logo
+  npm i mysql express express-handlebars
   ```
 
   ### Usage
   In mySQL workbench, setup the database using schema.sql and insert some content using seed.sql.<br />
-  In VS Code terminal, install the npm dependencies, then use <i>node app.js</i> to run the app in the terminal.
+  In VS Code terminal, install the npm dependencies, then use <i>node server.js</i> to run the app in the terminal.
 
   ### Questions
   Contact me for questions at dongkai981@gmail.com<br />
