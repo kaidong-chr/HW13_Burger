@@ -15,7 +15,7 @@
   - [License](#License)
 
   ### Demo
-![Image](./assets/images/Employee_Tracker.gif "CMS Demo")<br />
+<img src="public\assets\img\Burger.gif" width="600"><br />
 
 ![Image](https://img.shields.io/badge/Languages-JavaScript-yellow)
 
