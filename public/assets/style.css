@@ -1,3 +1,31 @@
 h1 {
-    margin-left: 25%;
+    color: yellow !important;
+    margin-left: 35%;
+}
+
+.inputBurger {
+    font-size: 30px;
+    margin-left: 5%;
+    font-weight: bold;
+    color: black;
+}
+
+body {
+    background-color: gray !important;
+    background-size: cover;
+}
+
+#newBurger {
+    font-size: 28px;
+    color: yellow;
+}
+
+
+.create-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.newBurger {
+    font-size: 18px;
 }
